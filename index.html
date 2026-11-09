@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Entrar — Yellower Design Studio®</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<main id="contenido" class="login">
+
+  <section class="login__marca sobre-tinta">
+    <a class="logo" href="https://yellowerdesignstudio.com/">YELLOWER&reg;</a>
+
+    <div class="login__marca-texto">
+      <span class="eyebrow">Portal de clientes</span>
+      <p class="login__lema">Tu proyecto, <em>paso a paso.</em></p>
+      <p class="login__sub">Mira el avance, lo que sigue y lo que necesitamos de ti. Todo en un solo lugar.</p>
+    </div>
+
+    <div class="login__muestra" aria-hidden="true">
+      <div class="segmentos">
+        <span class="segmento" data-p="100"></span><span class="segmento" data-p="100"></span><span class="segmento" data-p="55"></span><span class="segmento" data-p="0"></span><span class="segmento" data-p="0"></span>
+      </div>
+      <p class="login__muestra-texto"><span class="separador"></span> Etapa por etapa, sin sorpresas</p>
+    </div>
+  </section>
+
+  <section class="login__formulario">
+    <div class="login__tarjeta">
+      <span class="eyebrow">Bienvenido</span>
+      <h1>Entra a tu <em>espacio</em></h1>
+
+      <form id="form" novalidate>
+        <div class="campo">
+          <label class="campo__label" for="email">Usuario o correo</label>
+          <input class="campo__input" id="email" name="usuario" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div class="campo">
+          <label class="campo__label" for="password">Contraseña</label>
+          <div class="con-boton">
+            <input class="campo__input" id="password" name="password" type="password" autocomplete="current-password" required>
+            <button class="btn btn--contorno btn--pequeno" id="ver" type="button" aria-pressed="false">Ver</button>
+          </div>
+        </div>
+        <p id="estado" class="estado" role="alert"></p>
+        <button class="btn btn--amarillo btn--ancho flecha" id="enviar" type="submit">Entrar</button>
+      </form>
+
+      <p class="login__pie">¿Olvidaste tu contraseña o no puedes entrar?
+        <a class="flecha" id="whatsapp" href="https://wa.me/573134553455">Escríbenos por WhatsApp</a></p>
+
+      <div class="login__demo" id="demo" hidden>
+        <p><strong>Modo demo.</strong> Prueba con:</p>
+        <p>Cliente: <code>SUPERSAFETY</code> / <code>demo</code></p>
+        <p>Yellower (admin): <code>admin@demo</code> / <code>demo</code></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="assets/vendor/supabase-js-2.118.0.umd.js"></script>
+<script type="module" src="assets/js/login.js"></script>
+</body>
+</html>

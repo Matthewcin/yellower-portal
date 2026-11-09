@@ -1,0 +1,175 @@
+/* =====================================================================
+   YELLOWER PORTAL — BASE
+   Reset, tipografía, enlaces, botones y accesibilidad. Solo usa tokens.
+   ===================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Sin movimiento en todo el portal: los cambios de estado son instantáneos. */
+*, *::before, *::after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-normal);
+  line-height: var(--interlineado-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* ---------- Títulos: serif, con énfasis en cursiva sólida ---------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulo);
+  font-weight: var(--peso-titulo);
+  line-height: var(--interlineado-titulo);
+  margin: 0 0 var(--espacio-4);
+  text-wrap: balance;
+}
+h1 { font-size: var(--titulo-1); }
+h2 { font-size: var(--titulo-2); }
+h3 { font-size: var(--titulo-3); }
+
+/* Énfasis: cursiva sólida. Nunca contorno ni texto hueco. */
+h1 em, h2 em, h3 em, .titulo em { font-style: italic; font-weight: inherit; }
+
+p { margin: 0 0 var(--espacio-4); }
+
+/* Etiqueta pequeña tipo eyebrow */
+.eyebrow {
+  display: block;
+  font-size: var(--eyebrow-tamano);
+  font-weight: var(--eyebrow-peso);
+  letter-spacing: var(--eyebrow-espaciado);
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  margin: 0 0 var(--espacio-3);
+}
+
+.texto-suave { color: var(--color-texto-suave); }
+.separador::before { content: "\2726"; margin: 0 var(--espacio-2); } /* ✦ permitido */
+
+/* ---------- Enlaces ---------- */
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-thickness: 2px; font-weight: var(--peso-fuerte); }
+
+/* Flecha ↗ en enlaces y botones */
+.flecha::after { content: " \2197"; text-decoration: none; display: inline-block; }
+
+/* ---------- Botones: sin movimiento, el estado cambia al instante ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  padding: var(--boton-padding-y) var(--boton-padding-x);
+  border: var(--borde);
+  border-radius: var(--boton-radio);
+  background: var(--color-tinta);
+  color: var(--color-crema);
+  font-family: var(--fuente-texto);
+  font-size: var(--boton-texto-tamano);
+  font-weight: var(--boton-texto-peso);
+  letter-spacing: var(--boton-texto-espaciado);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 2.75rem;            /* objetivo táctil mínimo */
+}
+.btn:hover { background: var(--color-amarillo); color: var(--color-tinta); font-weight: 800; }
+.btn:active { border-width: 3px; }
+
+.btn--amarillo { background: var(--color-amarillo); color: var(--color-tinta); }
+.btn--amarillo:hover { background: var(--color-tinta); color: var(--color-amarillo); }
+
+.btn--contorno { background: transparent; color: var(--color-tinta); }
+.btn--contorno:hover { background: var(--color-tinta); color: var(--color-crema); }
+
+.btn[disabled], .btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--color-crema);
+  color: var(--color-tinta);
+  font-weight: var(--boton-texto-peso);
+}
+
+/* ---------- Foco visible (AA) ---------- */
+
+:focus { outline: none; }
+:focus-visible {
+  outline: var(--foco-anillo);
+  outline-offset: var(--foco-separacion);
+}
+
+/* ---------- Accesibilidad ---------- */
+
+.solo-lectores {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.saltar {
+  position: absolute;
+  left: var(--espacio-3);
+  top: var(--espacio-3);
+  padding: var(--espacio-2) var(--espacio-4);
+  background: var(--color-amarillo);
+  color: var(--color-tinta);
+  border: var(--borde);
+  border-radius: var(--boton-radio);
+  font-weight: var(--peso-fuerte);
+  transform: translateY(-300%);
+}
+.saltar:focus { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Estructura de página ---------- */
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding-inline: var(--margen-pagina);
+}
+.lectura { max-width: var(--ancho-lectura); }
+
+/* Chip de estado: SIEMPRE ícono + texto + color (nunca solo color) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  padding: 0.2rem 0.7rem;
+  border: var(--borde);
+  border-radius: var(--radio-pildora);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-fuerte);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-crema);
+}
+.chip--demo { background: var(--color-amarillo); }

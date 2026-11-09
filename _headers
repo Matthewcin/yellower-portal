@@ -1,0 +1,11 @@
+# Solo lo usa Cloudflare Pages (GitHub Pages lo ignora; no pasa nada).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000
+  X-Robots-Tag: noindex, nofollow
+
+/*.html
+  Cache-Control: no-store

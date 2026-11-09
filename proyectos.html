@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mi espacio — Yellower Design Studio®</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra-superior">
+  <div class="barra-superior__interior">
+    <a class="logo" href="https://yellowerdesignstudio.com/">YELLOWER&reg;</a>
+    <div class="barra-superior__acciones">
+      <span id="quien"></span>
+      <a id="enlaceAdmin" class="flecha" href="admin.html" hidden>Panel de Yellower</a>
+      <button id="salir" class="boton-texto" type="button">Salir</button>
+    </div>
+  </div>
+</header>
+<main id="contenido" class="pagina">
+  <header class="encabezado-pagina">
+    <span class="eyebrow">Tu espacio en Yellower <span class="separador"></span> Progreso</span>
+    <h1 id="saludo">Cargando…</h1>
+    <p class="texto-suave">Aquí ves cómo va tu proyecto y lo que necesitamos de ti.</p>
+    <div class="actualizado">
+      <span id="actualizado"></span>
+      <button class="boton-texto" id="actualizar" type="button">Actualizar</button>
+    </div>
+    <p id="estado" class="estado" role="status" aria-live="polite"></p>
+  </header>
+  <div id="proyectos"></div>
+</main>
+<script src="assets/vendor/supabase-js-2.118.0.umd.js"></script>
+<script type="module" src="assets/js/cliente.js"></script>
+</body>
+</html>

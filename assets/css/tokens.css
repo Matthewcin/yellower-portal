@@ -1,0 +1,141 @@
+/* =====================================================================
+   YELLOWER PORTAL — TOKENS DE DISEÑO
+   ---------------------------------------------------------------------
+   Regla del proyecto: no se inventa identidad. Cada valor está en una de
+   estas tres categorías:
+
+   [CONFIRMADO]  Viene de la paleta oficial de marca o de tus notas del sitio.
+   [POR EXTRAER] Existe en la web principal pero aún no se ha leído su valor exacto.
+                 Hoy es un alias temporal (no un HEX inventado). Se reemplaza al correr
+                 tools/extract-tokens.js en yellowerdesignstudio.com (ver docs/04).
+   [PROVISIONAL] Escala técnica neutra (espaciado, tamaños) o valor tomado de las
+                 subpáginas ya aprobadas, no de la web principal. Se valida contra la
+                 extracción.
+
+   Importante para la CSP: nada de estilos en línea (`style="..."`). Todo valor
+   dinámico (por ejemplo el ancho de una barra de progreso) se pasa desde JS con
+   `elemento.style.setProperty("--p", "40%")`, que sí es compatible con la CSP.
+   ===================================================================== */
+
+:root {
+
+  /* ---------- COLOR ---------- */
+
+  /* [CONFIRMADO] Paleta principal (imagen de marca) */
+  --color-amarillo: #FFD55F;
+  --color-tinta: #202020;
+  --color-crema: #FEFDFA;
+
+  /* [CONFIRMADO] Acento digital. Contraste sobre crema: 3,26:1.
+     Solo para elementos de interfaz (bordes, íconos, foco). NUNCA para texto. */
+  --color-acento-digital: #1691EF;
+
+  /* [POR EXTRAER] Fondo greige cálido de la web principal. Alias temporal a crema. */
+  --color-fondo: var(--color-crema);
+  --color-fondo-suave: var(--color-crema);
+
+  /* [PROVISIONAL] Gris de texto secundario (usado en las subpáginas aprobadas).
+     Contraste sobre crema: 5,28:1 (cumple AA). */
+  --color-texto-suave: #6B6B63;
+
+  /* Roles semánticos: los componentes usan SOLO estos nombres */
+  --color-texto: var(--color-tinta);
+  --color-texto-inverso: var(--color-crema);
+  --color-superficie: var(--color-crema);
+  --color-borde: var(--color-tinta);
+  --color-acento: var(--color-amarillo);
+  --color-foco: var(--color-tinta);
+
+  /* Contrastes verificados (WCAG 2.1):
+     tinta sobre crema      16,02:1   AA texto normal
+     tinta sobre amarillo   11,59:1   AA texto normal
+     amarillo sobre tinta   11,59:1   AA texto normal
+     tinta sobre azul        4,91:1   AA texto normal
+     azul sobre crema        3,26:1   solo UI/texto grande
+     amarillo sobre crema    1,38:1   NO usar solo: necesita borde o fondo de tinta */
+
+
+  /* ---------- TIPOGRAFÍA ---------- */
+
+  /* [CONFIRMADO] Títulos: serif. Texto y navegación: Work Sans. */
+  --fuente-titulo: Georgia, "Times New Roman", Times, serif;
+  --fuente-texto: "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* [PROVISIONAL] Escala de tamaños */
+  --texto-xs: 0.75rem;
+  --texto-s: 0.875rem;
+  --texto-m: 1rem;
+  --texto-l: 1.125rem;
+  --titulo-3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --titulo-2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --titulo-1: clamp(2.25rem, 1.5rem + 3.2vw, 4.25rem);
+
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-fuerte: 600;
+  --peso-titulo: 400;       /* [POR EXTRAER] Georgia en la web principal; peso exacto por confirmar */
+
+  --interlineado-texto: 1.55;
+  --interlineado-titulo: 1.08;
+
+  /* [PROVISIONAL] Etiqueta pequeña tipo "eyebrow" */
+  --eyebrow-tamano: var(--texto-xs);
+  --eyebrow-espaciado: 0.14em;
+  --eyebrow-peso: var(--peso-fuerte);
+
+
+  /* ---------- ESPACIADO [PROVISIONAL] ---------- */
+  /* Escala de 4 px. Es un andamio técnico; se alinea con el espaciado real al extraer. */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+  --espacio-7: 3rem;
+  --espacio-8: 4.5rem;
+
+  --ancho-contenido: 72rem;
+  --ancho-lectura: 42rem;
+  --margen-pagina: clamp(1rem, 4vw, 2rem);
+
+
+  /* ---------- FORMA [PROVISIONAL] ---------- */
+  /* Tomado de las subpáginas aprobadas (botones en píldora, tarjetas redondeadas). */
+  --radio-s: 0.5rem;
+  --radio-m: 1rem;
+  --radio-l: 1.5rem;
+  --radio-pildora: 999px;
+
+  --borde-ancho: 2px;
+  --borde: var(--borde-ancho) solid var(--color-borde);
+  --borde-suave: 1px solid rgb(32 32 32 / 0.16);
+
+
+  /* ---------- BOTONES [PROVISIONAL] ---------- */
+  --boton-padding-y: 0.875rem;
+  --boton-padding-x: 1.5rem;
+  --boton-radio: var(--radio-pildora);
+  --boton-texto-tamano: var(--texto-s);
+  --boton-texto-peso: 700;
+  --boton-texto-espaciado: 0.07em;
+
+
+  /* ---------- FOCO (accesibilidad) [CONFIRMADO: requisito AA] ---------- */
+  --foco-anillo: 3px solid var(--color-foco);
+  --foco-separacion: 3px;
+
+
+  /* ---------- MOVIMIENTO [CONFIRMADO] ---------- */
+  /* La web principal no usa animaciones ni transiciones CSS.
+     Los estados cambian al instante (color, borde, peso). */
+  --transicion: none;
+}
+
+/* Sobre fondos de tinta el anillo de foco pasa a amarillo (11,59:1). */
+.sobre-tinta {
+  --color-foco: var(--color-amarillo);
+  --color-texto: var(--color-crema);
+  --color-superficie: var(--color-tinta);
+  --color-borde: var(--color-crema);
+}
