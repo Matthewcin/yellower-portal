@@ -3,19 +3,19 @@
 Un login y una página donde cada cliente ve el progreso de su proyecto y lo que necesitamos de él,
 estilo página de Notion. Yellower lo actualiza desde un panel sencillo.
 
-- **Cliente** (`proyectos.html`): tarjeta de avance con porcentaje grande y barra por etapas, "Lo último de
+- **Cliente** (`/proyectos/`): tarjeta de avance con porcentaje grande y barra por etapas, "Lo último de
   Yellower", lo que incluye su paquete, "Necesitamos de ti", línea de etapas con su propia barra y el
   detalle de tareas.
-- **Yellower** (`admin.html`): elige un cliente, edita su proyecto, escribe "Lo último" y administra
+- **Yellower** (`/admin/`): elige un cliente, edita su proyecto, escribe "Lo último" y administra
   las tareas (quién la hace, estado, fecha, orden). Todo se guarda solo.
-- **Login** (`index.html`): usuario (ej. SUPERSAFETY) o correo, y contraseña. No hay registro público: Yellower crea las cuentas.
+- **Login** (`/`): usuario (ej. SUPERSAFETY) o correo, y contraseña. No hay registro público: Yellower crea las cuentas.
 
 Guía paso a paso: [docs/PUBLICAR.md](docs/PUBLICAR.md)
 
 ## Archivos
 
 ```
-index.html · proyectos.html · admin.html     Las 3 pantallas
+/ · /proyectos/ · /admin/     Las 3 pantallas
 assets/js/config.js                          Aquí se pegan los 2 datos de Supabase
 assets/js/datos.js                           Conexión con Supabase (y modo demo)
 assets/css, fonts, vendor                    Diseño, Work Sans y supabase-js (todo dentro del repo)

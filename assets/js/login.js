@@ -14,7 +14,7 @@ const ver = document.getElementById("ver");
 document.getElementById("whatsapp").href = WHATSAPP;
 if (MODO_DEMO) document.getElementById("demo").hidden = false;
 
-const destino = (u) => (u.es_admin ? "admin.html" : "proyectos.html");
+const destino = (u) => (u.es_admin ? "/admin/" : "/proyectos/");
 
 // Si ya hay una sesión abierta, se entra directo.
 try {

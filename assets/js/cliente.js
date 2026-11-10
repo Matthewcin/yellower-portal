@@ -12,8 +12,8 @@ bannerDemo();
 const datos = obtenerDatos();
 
 const usuario = await datos.sesion();
-if (!usuario) ir("index.html");
-else if (usuario.sinPerfil) { await datos.salir(); ir("index.html"); }
+if (!usuario) ir("/");
+else if (usuario.sinPerfil) { await datos.salir(); ir("/"); }
 else iniciar(usuario);
 
 function iniciar(u) {
@@ -22,7 +22,7 @@ function iniciar(u) {
   document.getElementById("quien").textContent = u.nombre || u.email;
   if (u.es_admin) document.getElementById("enlaceAdmin").hidden = false;
 
-  document.getElementById("salir").addEventListener("click", async () => { await datos.salir(); ir("index.html"); });
+  document.getElementById("salir").addEventListener("click", async () => { await datos.salir(); ir("/"); });
   document.getElementById("actualizar").addEventListener("click", () => cargar(true));
 
   let proyectos = [];

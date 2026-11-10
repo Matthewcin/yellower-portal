@@ -9,13 +9,13 @@ bannerDemo();
 const datos = obtenerDatos();
 
 const usuario = await datos.sesion();
-if (!usuario) ir("index.html");
-else if (!usuario.es_admin) ir("proyectos.html");
+if (!usuario) ir("/");
+else if (!usuario.es_admin) ir("/proyectos/");
 else iniciar(usuario);
 
 function iniciar(u) {
   document.getElementById("quien").textContent = u.nombre || u.email;
-  document.getElementById("salir").addEventListener("click", async () => { await datos.salir(); ir("index.html"); });
+  document.getElementById("salir").addEventListener("click", async () => { await datos.salir(); ir("/"); });
 
   const S = { clientes: [], cliente: null, proyectos: [], proyecto: null, nuevoProyecto: false };
   const lateral = document.getElementById("lateral");
